@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class PreProcess {
 
-    private int answerAMT;
+    private int k;
     private char[] data;
 
     public PreProcess(String fileName) {
@@ -14,13 +14,13 @@ public class PreProcess {
             Scanner fileReader = new Scanner(file);
             String line = fileReader.nextLine();
             data = line.trim().toCharArray();
-            this.answerAMT = fileReader.nextInt();
+            this.k = fileReader.nextInt();
             fileReader.close();
         }catch (Exception e){
         }
     }
 
-    public byte[] mapGP(char[] data){
+    public byte[] mapGP(){
         byte[] processedData = new byte[data.length];
         for (int i=0;i<data.length;i++) {
             processedData[i] = isG(data[i]);
@@ -28,8 +28,8 @@ public class PreProcess {
         return processedData;
     }
 
-    public int getAnswerAMT() {
-        return answerAMT;
+    public int getK() {
+        return k;
     }
 
     private static byte isG(char character){
